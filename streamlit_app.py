@@ -26,7 +26,7 @@ if uploaded_file is not None:
     target_column = st.selectbox("Select target column", df.columns.tolist(), index=len(df.columns)-1)
 
     # Data Preprocessing
-    X = df['Open','High','Low','Volume']
+    X = df[['Open','High','Low','Volume']]
     y = df['Close']
 
     scaler = StandardScaler()
