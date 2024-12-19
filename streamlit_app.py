@@ -52,7 +52,7 @@ if uploaded_file is not None:
     y_train, y_test = y[:train_size], y[train_size:]
 
     # Model Training
-    svr_model = SVR(kernel='rbf')
+    svr_model = SVR(kernel='linear', C=50, epsilon=0.2)
     svr_model.fit(X_train, y_train)
 
     # Model Evaluation
