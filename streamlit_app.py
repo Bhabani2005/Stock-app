@@ -63,15 +63,17 @@ if uploaded_file is not None:
     mae = mean_absolute_error(y_test, y_pred)
     mse = mean_squared_error(y_test, y_pred)
     rmse = math.sqrt(mse)
-    
-    dframeS = pd.DataFrame({'Actual':y_test,'Predicted':y_pred})
-    st.dataframe(dframeS.head(5))
 
     st.write("### Model Evaluation")
     st.write(f"R-squared: {r2:.4f}")
     st.write(f"Mean Absolute Error: {mae:.4f}")
     st.write(f"Mean Squared Error: {mse:.4f}")
     st.write(f"Root Mean Squared Error: {rmse:.4f}")
+    
+    dframeS = pd.DataFrame({'Actual':y_test,'Predicted':y_pred})
+    st.dataframe(dframeS.head(5))
+
+    
 
     # Visualization
     st.write("### Actual vs Predicted Prices")
@@ -87,7 +89,7 @@ if uploaded_file is not None:
     x_indices = np.arange(len(graphS))
 
     # Create a bar plot with offsets for Actual and Predicted
-    fig, ax = plt.subplots(figsize=(16, 5))  # Create a Matplotlib figure
+    fig, ax = plt.subplots(figsize=(20, 10))  # Create a Matplotlib figure
 
     # Bar width
     bar_width = 0.4
