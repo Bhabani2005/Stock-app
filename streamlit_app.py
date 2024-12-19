@@ -48,8 +48,8 @@ if uploaded_file is not None:
     
     # Feature selection
     st.write("### Feature Selection")
-    feature_columns = st.multiselect("Select feature columns", df[['Open','High','Low','Volume']])
-    target_column = st.selectbox("Select target column", df['Close'])
+    feature_columns = st.multiselect("Select feature columns", df.columns.tolist(), default=df.columns[:4].tolist()) 
+    target_column = st.selectbox("Select target column", df.columns.tolist(), index=len(df.columns)-1)
 
     # Data Preprocessing
     X = df[['Open','High','Low','Volume']]
