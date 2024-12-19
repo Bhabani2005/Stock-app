@@ -40,10 +40,10 @@ if uploaded_file is not None:
     # Plot the 'Open' prices with the Date as the x-axis
     #st.title('Open Prices Over Time')
     # Create the plot using Plotly
-    fig = px.line(df, x='Date', y='Open', title='Open Prices Over Time') 
+    #fig = px.line(df, x='Date', y='Open', title='Open Prices Over Time') 
 
     # Display the plot in Streamlit
-    st.plotly_chart(fig)
+    #st.plotly_chart(fig)
 
     # Assuming 'df' contains the 'Open' and 'Date' columns
     # Convert 'Date' to datetime if necessary
@@ -111,8 +111,8 @@ if uploaded_file is not None:
 
    # Visualization
     fig, ax = plt.subplots(figsize=(12, 6))
-    ax.plot(y_test.reset_index(drop=True), label='Actual', marker='o')
-    ax.plot(y_pred, label='Predicted', marker='x')
+    ax.plot(df['Open'].reset_index(drop=True), label='Actual', marker='o')
+    ax.plot(df['Date'], label='Predicted', marker='x')
     ax.legend()
     st.pyplot(fig)
     
