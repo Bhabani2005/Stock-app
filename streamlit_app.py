@@ -69,12 +69,12 @@ if uploaded_file is not None:
     st.write(f"Root Mean Squared Error: {rmse:.4f}")
 
     # Visualization
-    st.write("### Actual vs Predicted Prices")
-    fig, ax = plt.subplots(figsize=(12, 6))
-    ax.plot(y_test.reset_index(drop=True), label='Actual', marker='o')
-    ax.plot(y_pred, label='Predicted', marker='x')
-    ax.legend()
-    st.pyplot(fig)
+    #st.write("### Actual vs Predicted Prices")
+    #fig, ax = plt.subplots(figsize=(12, 6))
+    #ax.plot(y_test.reset_index(drop=True), label='Actual', marker='o')
+    #ax.plot(y_pred, label='Predicted', marker='x')
+    #ax.legend()
+    #st.pyplot(fig)
 
     # User Input for Prediction
     st.sidebar.header('Predict Stock Price')
