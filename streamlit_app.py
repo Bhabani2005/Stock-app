@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import plotly.express as px
 import matplotlib.pyplot as plt
 from sklearn.svm import SVR
 from sklearn.preprocessing import StandardScaler
@@ -38,6 +39,11 @@ if uploaded_file is not None:
    
     # Plot the 'Open' prices with the Date as the x-axis
     st.title('Open Prices Over Time')
+    # Create the plot using Plotly
+    fig = px.line(df, x='Date', y='Open', title='Open Prices Over Time')
+
+    # Display the plot in Streamlit
+    st.plotly_chart(fig)
 
     # Assuming 'df' contains the 'Open' and 'Date' columns
     # Convert 'Date' to datetime if necessary
@@ -47,14 +53,14 @@ if uploaded_file is not None:
     #df.set_index('Date', inplace=True)
 
     # Create the plot
-    plt.figure(figsize=(16, 6))
-    plt.plot(df.index, df['Open'], label='Open Prices', color='b')
-    plt.title('Open Prices Over Time')
-    plt.xlabel('Date')
-    plt.ylabel('Open Price')
+    #plt.figure(figsize=(16, 6))
+    #plt.plot(df.index, df['Open'], label='Open Prices', color='b')
+    #plt.title('Open Prices Over Time')
+    #plt.xlabel('Date')
+   # plt.ylabel('Open Price')
 
     # Display the plot in Streamlit
-    st.pyplot(plt)
+    #st.pyplot(plt)
 
     # Feature selection
     st.write("### Feature Selection")
