@@ -20,6 +20,20 @@ if uploaded_file is not None:
     st.write("### Dataset Preview")
     st.dataframe(df.head())
 
+    df.describe()
+    columns_to_drop = ['Adj Close']
+    df.drop(columns=columns_to_drop, inplace = True)
+
+    df['Date'] = pd.to_datetime(df['Date'], format="%d-%m-%Y", errors='coerce')
+    df['Date'] = df['Date'].dt.strftime('%d-%m-%Y')
+    df.head(2)
+
+    df['Open'] = df['Open'].fillna(df['Open'].mean())  # Replace NaN with the column mean
+    df['High'] = df['High'].fillna(df['High'].mean())
+    df['Low'] = df['Low'].fillna(df['Low'].mean())
+    df['Volume'] = df['Volume'].fillna(df['Volume'].mean())
+    df['Close'] = df['Close'].fillna(df['Close'].mean())
+
     # Feature selection
     st.write("### Feature Selection")
     feature_columns = st.multiselect("Select feature columns", df.columns.tolist(), default=df.columns[:-1])
