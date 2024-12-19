@@ -89,7 +89,7 @@ if uploaded_file is not None:
     x_indices = np.arange(len(graphS))
 
     # Create a bar plot with offsets for Actual and Predicted
-    fig, ax = plt.subplots(figsize=(20, 10))  # Create a Matplotlib figure
+    fig, ax = plt.subplots(figsize=(12, 6))  # Create a Matplotlib figure
 
     # Bar width
     bar_width = 0.4
@@ -99,9 +99,9 @@ if uploaded_file is not None:
     predicted_bars = ax.bar(x_indices + bar_width / 2, graphS['Predicted'], label='Predicted', color='orange', alpha=0.7, width=bar_width)
 
     # Add titles and labels
-    ax.set_title("ITC STOCK: Actual Price vs Predicted Price", fontsize=15)
-    ax.set_xlabel("Date", fontsize=12)
-    ax.set_ylabel("Price", fontsize=12)
+    ax.set_title("ITC STOCK: Actual Price vs Predicted Price")
+    ax.set_xlabel("Date")
+    ax.set_ylabel("Price")
     ax.set_xticks(x_indices)
     ax.set_xticklabels(graphS.index, rotation=45)  # Rotate x-axis labels for better readability
 
