@@ -66,7 +66,7 @@ if uploaded_file is not None:
     #df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 
     # Drop any rows with missing 'Date' or 'Open' values
-    df = df.dropna(subset=['Date', 'Open'])
+    #df = df.dropna(subset=['Date', 'Open'])
 
     # Plot the 'Open' prices over time using Plotly
     fig = px.line(df, x='Date', y='Open', title='Stock Open Prices Over Time')
