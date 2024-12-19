@@ -35,6 +35,26 @@ if uploaded_file is not None:
     df['Low'] = df['Low'].fillna(df['Low'].mean())
     df['Volume'] = df['Volume'].fillna(df['Volume'].mean())
     df['Close'] = df['Close'].fillna(df['Close'].mean())
+   
+    # Plot the 'Open' prices with the Date as the x-axis
+    st.title('Open Prices Over Time')
+
+    # Assuming 'df' contains the 'Open' and 'Date' columns
+    # Convert 'Date' to datetime if necessary
+    df['Date'] = pd.to_datetime(df['Date'])
+
+    # Set the Date column as the index (optional but useful for plotting)
+    df.set_index('Date', inplace=True)
+
+    # Create the plot
+    plt.figure(figsize=(16, 6))
+    plt.plot(df.index, df['Open'], label='Open Prices', color='b')
+    plt.title('Open Prices Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Open Price')
+
+    # Display the plot in Streamlit
+    st.pyplot(plt)
 
     # Feature selection
     st.write("### Feature Selection")
@@ -77,7 +97,7 @@ if uploaded_file is not None:
     st.write("Here's a comparison of the first 5 rows of the actual and predicted stock prices:")
 
     # Use st.dataframe for an interactive table
-    st.dataframe(dframeS.head(10), width=700, height=200)
+    st.dataframe(dframeS.head(50), width=700, height=200)
 
     # Optionally, use st.table for a static, cleaner look
     st.markdown("### Static View of the Table")
