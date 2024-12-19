@@ -69,14 +69,12 @@ if uploaded_file is not None:
     st.write(f"Mean Absolute Error: {mae:.4f}")
     st.write(f"Mean Squared Error: {mse:.4f}")
     st.write(f"Root Mean Squared Error: {rmse:.4f}")
-    
+
+    st.write("### Actual vs Predicted Prices")
     dframeS = pd.DataFrame({'Actual':y_test,'Predicted':y_pred})
     st.dataframe(dframeS.head(5))
 
-    
-
-    # Visualization
-    st.write("### Actual vs Predicted Prices")
+   # Visualization
     fig, ax = plt.subplots(figsize=(12, 6))
     ax.plot(y_test.reset_index(drop=True), label='Actual', marker='o')
     ax.plot(y_pred, label='Predicted', marker='x')
@@ -89,14 +87,14 @@ if uploaded_file is not None:
     x_indices = np.arange(len(graphS))
 
     # Create a bar plot with offsets for Actual and Predicted
-    fig, ax = plt.subplots(figsize=(12, 6))  # Create a Matplotlib figure
+    fig, ax = plt.subplots(figsize=(16, 6))  # Create a Matplotlib figure
 
     # Bar width
-    bar_width = 0.4
+    bar_width = 0.7
 
     # Plot Actual and Predicted with offsets
-    actual_bars = ax.bar(x_indices - bar_width / 2, graphS['Actual'], label='Actual', color='blue', alpha=0.7, width=bar_width)
-    predicted_bars = ax.bar(x_indices + bar_width / 2, graphS['Predicted'], label='Predicted', color='orange', alpha=0.7, width=bar_width)
+    actual_bars = ax.bar(x_indices - bar_width / 2, graphS['Actual'], label='Actual', color='blue', alpha=0.7)
+    predicted_bars = ax.bar(x_indices + bar_width / 2, graphS['Predicted'], label='Predicted', color='orange', alpha=0.7)
 
     # Add titles and labels
     ax.set_title("ITC STOCK: Actual Price vs Predicted Price")
