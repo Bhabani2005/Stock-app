@@ -62,6 +62,18 @@ if uploaded_file is not None:
     # Display the plot in Streamlit
     #st.pyplot(plt)
 
+    # Convert 'Date' to datetime format
+    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+
+    # Drop any rows with missing 'Date' or 'Open' values
+    df = df.dropna(subset=['Date', 'Open'])
+
+    # Plot the 'Open' prices over time using Plotly
+    fig = px.line(df, x='Date', y='Open', title='Stock Open Prices Over Time')
+
+    # Display the plot in Streamlit
+    st.plotly_chart(fig)
+    
     # Feature selection
     st.write("### Feature Selection")
     feature_columns = st.multiselect("Select feature columns", df.columns.tolist(), default=df.columns[:-1])
@@ -106,7 +118,8 @@ if uploaded_file is not None:
     st.dataframe(dframeS.head(50), width=700, height=200)
 
     # Optionally, use st.table for a static, cleaner look
-    st.markdown("### Static View of the Table")
+    st.write("Static View of the Table:")
+    #st.markdown("### Static View of the Table")
     st.table(dframeS.head(5))
 
    # Visualization
