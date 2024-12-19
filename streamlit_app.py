@@ -88,8 +88,9 @@ if uploaded_file is not None:
     ax.set_xlabel("Date", fontsize=12)
     ax.set_ylabel("Price", fontsize=12)
 
-# Display the plot in Streamlit
-st.pyplot(fig)
+    # Display the plot in Streamlit
+    st.pyplot(fig)
+    
     # User Input for Prediction
     st.sidebar.header('Predict Stock Price')
     input_data = []
