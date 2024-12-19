@@ -41,10 +41,10 @@ if uploaded_file is not None:
 
     # Assuming 'df' contains the 'Open' and 'Date' columns
     # Convert 'Date' to datetime if necessary
-    df['Date'] = pd.to_datetime(df['Date'])
+    #df['Date'] = pd.to_datetime(df['Date'])
 
     # Set the Date column as the index (optional but useful for plotting)
-    df.set_index('Date', inplace=True)
+    #df.set_index('Date', inplace=True)
 
     # Create the plot
     plt.figure(figsize=(16, 6))
