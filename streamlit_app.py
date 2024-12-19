@@ -83,12 +83,20 @@ if uploaded_file is not None:
     
     graphS = dframeS.head(20)
 
-    # Create a bar plot
-    fig, ax = plt.subplots(figsize=(20, 10))  # Create a Matplotlib figure
-    graphS.plot(kind='bar', ax=ax)  # Plot on the figure's axis
+    # Create a bar plot with labels for Actual and Predicted
+    fig, ax = plt.subplots(figsize=(20, 8))  # Create a Matplotlib figure
+
+    # Plot Actual and Predicted with their respective colors
+    actual_bars = ax.bar(graphS.index, graphS['Actual'], label='Actual', color='blue', alpha=0.7, width=0.4, align='center')
+    predicted_bars = ax.bar(graphS.index, graphS['Predicted'], label='Predicted', color='orange', alpha=0.7, width=0.4, align='edge')
+    
+    # Add titles and labels
     ax.set_title("ITC STOCK: Actual Price vs Predicted Price", fontsize=15)
-    ax.set_xlabel("Date", fontsize=15)
-    ax.set_ylabel("Price", fontsize=15)
+    ax.set_xlabel("Date", fontsize=12)
+    ax.set_ylabel("Price", fontsize=12)
+
+    # Add legend with matching colors
+    ax.legend(fontsize=12, loc='upper left')
 
     # Display the plot in Streamlit
     st.pyplot(fig)
