@@ -72,7 +72,7 @@ if uploaded_file is not None:
 
     st.write("### Actual vs Predicted Prices")
     dframeS = pd.DataFrame({'Actual':y_test,'Predicted':y_pred})
-    st.dataframe(dframeS.head(5))
+    st.dataframe(dframeS.head(5),width=700, height=200)
 
    # Visualization
     fig, ax = plt.subplots(figsize=(12, 6))
