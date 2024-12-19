@@ -93,8 +93,8 @@ if uploaded_file is not None:
     bar_width = 0.7
 
     # Plot Actual and Predicted with offsets
-    actual_bars = ax.bar(x_indices - bar_width / 2, graphS['Actual'], label='Actual', color='blue', alpha=0.7)
-    predicted_bars = ax.bar(x_indices + bar_width / 2, graphS['Predicted'], label='Predicted', color='orange', alpha=0.7)
+    actual_bars = ax.bar(x_indices - bar_width / 2, graphS['Actual'], label='Actual', color='blue', alpha=0.7, width=bar_width)
+    predicted_bars = ax.bar(x_indices + bar_width / 2, graphS['Predicted'], label='Predicted', color='orange', alpha=0.7, width=bar_width)
 
     # Add titles and labels
     ax.set_title("ITC STOCK: Actual Price vs Predicted Price")
