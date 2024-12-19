@@ -38,46 +38,18 @@ if uploaded_file is not None:
     df['Close'] = df['Close'].fillna(df['Close'].mean())
    
     # Plot the 'Open' prices with the Date as the x-axis
-    #st.title('Open Prices Over Time')
-    # Create the plot using Plotly
-    #fig = px.line(df, x='Date', y='Open', title='Open Prices Over Time') 
-
-    # Display the plot in Streamlit
-    #st.plotly_chart(fig)
-
-    # Assuming 'df' contains the 'Open' and 'Date' columns
-    # Convert 'Date' to datetime if necessary
-    #df['Date'] = pd.to_datetime(df['Date'])
-
-    # Set the Date column as the index (optional but useful for plotting)
-    #df.set_index('Date', inplace=True)
-
-    # Create the plot
-    #plt.figure(figsize=(16, 6))
-    #plt.plot(df.index, df['Open'], label='Open Prices', color='b')
-    #plt.title('Open Prices Over Time')
-    #plt.xlabel('Date')
-   # plt.ylabel('Open Price')
-
-    # Display the plot in Streamlit
-    #st.pyplot(plt)
-
-    # Convert 'Date' to datetime format
-    #df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
-
-    # Drop any rows with missing 'Date' or 'Open' values
-    #df = df.dropna(subset=['Date', 'Open'])
+    st.title('Open Prices Over Time')
 
     # Plot the 'Open' prices over time using Plotly
-    fig = px.line(df, y='Open', title='Stock Open Prices Over Time')
+    fig = px.line(df, y='Open')
 
     # Display the plot in Streamlit
     st.plotly_chart(fig)
     
     # Feature selection
     st.write("### Feature Selection")
-    feature_columns = st.multiselect("Select feature columns", df.columns.tolist(), default=df.columns[:-1])
-    target_column = st.selectbox("Select target column", df.columns.tolist(), index=len(df.columns)-1)
+    feature_columns = st.multiselect("Select feature columns", df[['Open','High','Low','Volume']])
+    target_column = st.selectbox("Select target column", df['Close'])
 
     # Data Preprocessing
     X = df[['Open','High','Low','Volume']]
