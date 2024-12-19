@@ -61,7 +61,10 @@ if uploaded_file is not None:
     mae = mean_absolute_error(y_test, y_pred)
     mse = mean_squared_error(y_test, y_pred)
     rmse = math.sqrt(mse)
-
+    
+    dframeS = pd.DataFrame({'Actual':y_test,'Predicted':y_pred})
+    dframeS.head(10)
+    
     st.write("### Model Evaluation")
     st.write(f"R-squared: {r2:.4f}")
     st.write(f"Mean Absolute Error: {mae:.4f}")
