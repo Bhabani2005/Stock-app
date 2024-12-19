@@ -63,8 +63,8 @@ if uploaded_file is not None:
     rmse = math.sqrt(mse)
     
     dframeS = pd.DataFrame({'Actual':y_test,'Predicted':y_pred})
-    dframeS.head(10)
-    
+    st.dataframe(dframeS.head(10))
+
     st.write("### Model Evaluation")
     st.write(f"R-squared: {r2:.4f}")
     st.write(f"Mean Absolute Error: {mae:.4f}")
