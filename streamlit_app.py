@@ -82,7 +82,7 @@ if uploaded_file is not None:
     graphS = dframeS.head(25)
 
     # Create a bar plot
-    fig, ax = plt.subplots(figsize=(20, 8)  # Create a Matplotlib figure
+    fig, ax = plt.subplots(figsize=(20, 8))  # Create a Matplotlib figure
     graphS.plot(kind='bar', ax=ax)  # Plot on the figure's axis
     ax.set_title("ITC STOCK: Actual Price vs Predicted Price", fontsize=15)
     ax.set_xlabel("Date", fontsize=12)
