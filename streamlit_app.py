@@ -81,10 +81,10 @@ if uploaded_file is not None:
     ax.legend()
     st.pyplot(fig)
     
-    graphS = dframeS.head(20)
+    graphS = dframeS.head(15)
 
     # Create a bar plot with labels for Actual and Predicted
-    fig, ax = plt.subplots(figsize=(20, 8))  # Create a Matplotlib figure
+    fig, ax = plt.subplots(figsize=(16, 8))  # Create a Matplotlib figure
 
     # Plot Actual and Predicted with their respective colors
     actual_bars = ax.bar(graphS.index, graphS['Actual'], label='Actual', color='blue', alpha=0.7, width=0.4, align='center')
