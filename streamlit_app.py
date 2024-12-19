@@ -87,10 +87,10 @@ if uploaded_file is not None:
     x_indices = np.arange(len(graphS))
 
     # Create a bar plot with offsets for Actual and Predicted
-    fig, ax = plt.subplots(figsize=(16, 6))  # Create a Matplotlib figure
+    fig, ax = plt.subplots(figsize=(12, 6))  # Create a Matplotlib figure
 
     # Bar width
-    bar_width = 0.7
+    bar_width = 0.4
 
     # Plot Actual and Predicted with offsets
     actual_bars = ax.bar(x_indices - bar_width / 2, graphS['Actual'], label='Actual', color='blue', alpha=0.7, width=bar_width)
