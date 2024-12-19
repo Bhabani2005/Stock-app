@@ -110,12 +110,6 @@ if uploaded_file is not None:
     st.table(dframeS.head(5))
 
    # Visualization
-    fig, ax = plt.subplots(figsize=(12, 6))
-    ax.plot(df['Open'].reset_index(drop=True), label='Actual', marker='o')
-    ax.plot(df['Date'], label='Predicted', marker='x')
-    ax.legend()
-    st.pyplot(fig)
-    
     graphS = dframeS.head(15)
 
     # Generate x-axis indices for the bars
