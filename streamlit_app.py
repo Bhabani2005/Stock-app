@@ -81,7 +81,7 @@ if uploaded_file is not None:
     ax.legend()
     st.pyplot(fig)
     
-   graphS = dframeS.head(25)
+    graphS = dframeS.head(15)
 
     # Generate x-axis indices for the bars
     x_indices = np.arange(len(graphS))
