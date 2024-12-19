@@ -63,7 +63,7 @@ if uploaded_file is not None:
     rmse = math.sqrt(mse)
     
     dframeS = pd.DataFrame({'Actual':y_test,'Predicted':y_pred})
-    st.dataframe(dframeS.head(10))
+    st.dataframe(dframeS.head(5))
 
     st.write("### Model Evaluation")
     st.write(f"R-squared: {r2:.4f}")
@@ -80,11 +80,16 @@ if uploaded_file is not None:
     st.pyplot(fig)
     
     graphS = dframeS.head(25)
-    graphS.plot(kind='bar',figsize=(16,5))
-    plt.title("ITC STOCK : Actual Price vs Predicted Price", fontsize=15)
-    plt.xlabel("Date", fontsize=12)
-    plt.ylabel("Price", fontsize=12)
-    plt.show()
+
+    # Create a bar plot
+    fig, ax = plt.subplots(figsize=(16, 5))  # Create a Matplotlib figure
+    graphS.plot(kind='bar', ax=ax)  # Plot on the figure's axis
+    ax.set_title("ITC STOCK: Actual Price vs Predicted Price", fontsize=15)
+    ax.set_xlabel("Date", fontsize=12)
+    ax.set_ylabel("Price", fontsize=12)
+
+# Display the plot in Streamlit
+st.pyplot(fig)
     # User Input for Prediction
     st.sidebar.header('Predict Stock Price')
     input_data = []
