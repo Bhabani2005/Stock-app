@@ -63,7 +63,7 @@ if uploaded_file is not None:
     #st.pyplot(plt)
 
     # Convert 'Date' to datetime format
-    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+    #df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 
     # Drop any rows with missing 'Date' or 'Open' values
     df = df.dropna(subset=['Date', 'Open'])
