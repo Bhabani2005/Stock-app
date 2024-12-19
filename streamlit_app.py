@@ -78,7 +78,13 @@ if uploaded_file is not None:
     ax.plot(y_pred, label='Predicted', marker='x')
     ax.legend()
     st.pyplot(fig)
-
+    
+    graphS = dframeS.head(25)
+    graphS.plot(kind='bar',figsize=(16,5))
+    plt.title("ITC STOCK : Actual Price vs Predicted Price", fontsize=15)
+    plt.xlabel("Date", fontsize=12)
+    plt.ylabel("Price", fontsize=12)
+    plt.show()
     # User Input for Prediction
     st.sidebar.header('Predict Stock Price')
     input_data = []
