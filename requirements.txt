@@ -4,5 +4,5 @@ pandas
 scikit-learn
 matplotlib
 seaborn
-plotly
+plotly.express
 altair
