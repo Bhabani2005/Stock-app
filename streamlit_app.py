@@ -38,7 +38,7 @@ if uploaded_file is not None:
     df['Close'] = df['Close'].fillna(df['Close'].mean())
    
     # Plot the 'Open' prices with the Date as the x-axis
-    st.title('Open Prices Over Time')
+    st.write("### Open Prices Over Time")
 
     # Plot the 'Open' prices over time using Plotly
     fig = px.line(df, y='Open')
