@@ -70,7 +70,6 @@ if uploaded_file is not None:
     st.write(f"Mean Squared Error: {mse:.4f}")
     st.write(f"Root Mean Squared Error: {rmse:.4f}")
 
-    st.write("### Actual vs Predicted Prices")
     dframeS = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
 
     # Display the first 5 rows in a more structured table
@@ -78,7 +77,7 @@ if uploaded_file is not None:
     st.write("Here's a comparison of the first 5 rows of the actual and predicted stock prices:")
 
     # Use st.dataframe for an interactive table
-    st.dataframe(dframeS.head(5), width=700, height=200)
+    st.dataframe(dframeS.head(10), width=700, height=200)
 
     # Optionally, use st.table for a static, cleaner look
     st.markdown("### Static View of the Table")
