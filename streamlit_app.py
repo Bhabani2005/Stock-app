@@ -81,19 +81,27 @@ if uploaded_file is not None:
     ax.legend()
     st.pyplot(fig)
     
-    graphS = dframeS.head(15)
+   graphS = dframeS.head(25)
 
-    # Create a bar plot with labels for Actual and Predicted
-    fig, ax = plt.subplots(figsize=(16, 8))  # Create a Matplotlib figure
+    # Generate x-axis indices for the bars
+    x_indices = np.arange(len(graphS))
 
-    # Plot Actual and Predicted with their respective colors
-    actual_bars = ax.bar(graphS.index, graphS['Actual'], label='Actual', color='blue', alpha=0.7, width=0.4, align='center')
-    predicted_bars = ax.bar(graphS.index, graphS['Predicted'], label='Predicted', color='orange', alpha=0.7, width=0.4, align='edge')
-    
+    # Create a bar plot with offsets for Actual and Predicted
+    fig, ax = plt.subplots(figsize=(16, 5))  # Create a Matplotlib figure
+
+    # Bar width
+    bar_width = 0.4
+
+    # Plot Actual and Predicted with offsets
+    actual_bars = ax.bar(x_indices - bar_width / 2, graphS['Actual'], label='Actual', color='blue', alpha=0.7, width=bar_width)
+    predicted_bars = ax.bar(x_indices + bar_width / 2, graphS['Predicted'], label='Predicted', color='orange', alpha=0.7, width=bar_width)
+
     # Add titles and labels
     ax.set_title("ITC STOCK: Actual Price vs Predicted Price", fontsize=15)
     ax.set_xlabel("Date", fontsize=12)
     ax.set_ylabel("Price", fontsize=12)
+    ax.set_xticks(x_indices)
+    ax.set_xticklabels(graphS.index, rotation=45)  # Rotate x-axis labels for better readability
 
     # Add legend with matching colors
     ax.legend(fontsize=12, loc='upper left')
