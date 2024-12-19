@@ -12,7 +12,8 @@ with st.expander('Data'):
   df = pd.read_csv("https://raw.githubusercontent.com/Bhabani2005/dataset/refs/heads/main/ITC.NS.csv")
   df
   st.write('**X**')
-  X=df.drop('Close','Adj Close',axis=1)
+  X = df.drop(['Close', 'Adj Close'], axis=1)
+
   X
 
   st.write('**y**')
