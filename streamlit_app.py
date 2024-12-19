@@ -69,7 +69,7 @@ if uploaded_file is not None:
     #df = df.dropna(subset=['Date', 'Open'])
 
     # Plot the 'Open' prices over time using Plotly
-    fig = px.line(df, x='Date', y='Open', title='Stock Open Prices Over Time')
+    fig = px.line(df, y='Open', title='Stock Open Prices Over Time')
 
     # Display the plot in Streamlit
     st.plotly_chart(fig)
