@@ -40,7 +40,7 @@ if uploaded_file is not None:
     # Plot the 'Open' prices with the Date as the x-axis
     st.title('Open Prices Over Time')
     # Create the plot using Plotly
-    fig = px.line(df, x='Date', y='Open', title='Open Prices Over Time')
+    fig = px.line(df, x='Date', y='Open', title='Open Prices Over Time') 
 
     # Display the plot in Streamlit
     st.plotly_chart(fig)
