@@ -28,6 +28,8 @@ if uploaded_file is not None:
     df['Date'] = df['Date'].dt.strftime('%d-%m-%Y')
     df.head(2)
 
+    df.set_index('Date', inplace=True)
+
     df['Open'] = df['Open'].fillna(df['Open'].mean())  # Replace NaN with the column mean
     df['High'] = df['High'].fillna(df['High'].mean())
     df['Low'] = df['Low'].fillna(df['Low'].mean())
