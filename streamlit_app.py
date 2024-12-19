@@ -81,14 +81,14 @@ if uploaded_file is not None:
     ax.legend()
     st.pyplot(fig)
     
-    graphS = dframeS.head(25)
+    graphS = dframeS.head(20)
 
     # Create a bar plot
-    fig, ax = plt.subplots(figsize=(20, 8))  # Create a Matplotlib figure
+    fig, ax = plt.subplots(figsize=(20, 10))  # Create a Matplotlib figure
     graphS.plot(kind='bar', ax=ax)  # Plot on the figure's axis
     ax.set_title("ITC STOCK: Actual Price vs Predicted Price", fontsize=15)
-    ax.set_xlabel("Date", fontsize=12)
-    ax.set_ylabel("Price", fontsize=12)
+    ax.set_xlabel("Date", fontsize=15)
+    ax.set_ylabel("Price", fontsize=15)
 
     # Display the plot in Streamlit
     st.pyplot(fig)
